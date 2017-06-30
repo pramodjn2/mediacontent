@@ -2,6 +2,8 @@
 $this->load->view('common/header');
 ?>
 
+
+
 <div class="jumbotron">
   <div class="container text-center">
     <h1>My Portfolio</h1>      
@@ -10,33 +12,17 @@ $this->load->view('common/header');
 </div>
   
 <div class="container-fluid bg-3 text-center">    
-  <h3>Some of my Work</h3><br>
+  <h3>Social Login</h3><br>
   <div class="row">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
+   
+ 
 
 <?php
 if(!empty($authUrl)) {
-    echo '<a href="'.$authUrl.'"><img src="'.base_url().'assets/images/glogin.png" alt="Glogin"/></a>';
-	echo '<a href="'.$fbauthUrl.'"><img src="'.base_url().'assets/images/flogin.png" alt="Facebook"/></a>';
-	echo '<a href="'.$linkedinoauthURL.'"><img src="'.base_url().'assets/images/sign-in-with-linkedin.png" alt="Linkedin" /></a>';
-	echo '<a href="'.$oauthURL.'"><img src="'.base_url().'assets/images/sign-in-with-twitter.png" alt="Twitter"/></a>';
+    echo '<div class="col-sm-3"><a href="'.$authUrl.'"><img src="'.base_url().'assets/images/glogin.png" alt="Glogin"/></a></div>';
+	echo '<div class="col-sm-3"><a href="'.$fbauthUrl.'"><img src="'.base_url().'assets/images/flogin.png" alt="Facebook"/></a></div>';
+	echo '<div class="col-sm-3"><a href="'.$linkedinoauthURL.'"><img src="'.base_url().'assets/images/sign-in-with-linkedin.png" alt="Linkedin" /></a></div>';
+	echo '<div class="col-sm-3"><a href="'.$twitteroauthURL.'"><img src="'.base_url().'assets/images/sign-in-with-twitter.png" alt="Twitter"/></a></div>';
 }else{
 
 ?>
@@ -59,6 +45,8 @@ if(!empty($authUrl)) {
 </div>
 <?php } ?>
 
+ </div>
+</div><br>
 <?php 
 $this->load->view('common/footer');
 ?>

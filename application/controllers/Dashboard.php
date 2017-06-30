@@ -70,11 +70,11 @@ class Dashboard extends CI_Controller
     }
 	
 	
-	 public function twitter(){
+	public function twitter(){
         $userData = array();
         
         //Include the twitter oauth php libraries
-       include_once APPPATH."libraries/twitter-api-php-client/src/twitteroauth.php";
+       include_once APPPATH."libraries/twitter-oauth-php-codexworld/twitteroauth.php";
         
         //Twitter API Configuration
          $consumerKey = $this->config->item('tconsumerKey');
@@ -157,11 +157,11 @@ class Dashboard extends CI_Controller
         }
 
         $data['userData'] = $userData;
-        $this->load->view('user_authentication/index',$data);
+        $this->load->view('login',$data);
     }
 	
 	
-	 public function facebook(){
+	public function facebook(){
         $userData = array();
 
         // Check if user is logged in
@@ -205,13 +205,13 @@ class Dashboard extends CI_Controller
         $this->load->view('login',$data);
     }
 	
+	
 	public function linkedin(){
         $userData = array();
         
         //Include the linkedin api php libraries
         include_once APPPATH."libraries/linkedin-oauth-client/http.php";
         include_once APPPATH."libraries/linkedin-oauth-client/oauth_client.php";
-        
         
         //Get status and user info from session
         $oauthStatus = $this->session->userdata('oauth_status');
@@ -253,14 +253,14 @@ class Dashboard extends CI_Controller
                 $first_name = !empty($userInfo->firstName)?$userInfo->firstName:'';
                 $last_name = !empty($userInfo->lastName)?$userInfo->lastName:'';
                 $userData = array(
-                    'oauth_provider'=> 'linkedin',
-                    'oauth_uid'     => $userInfo->id,
+                    'oauth_provider' => 'linkedin',
+                    'oauth_uid'      => $userInfo->id,
                     'first_name'     => $first_name,
-                    'last_name'     => $last_name,
-                    'email'         => $userInfo->emailAddress,
+                    'last_name'      => $last_name,
+                    'email'          => $userInfo->emailAddress,
                     'locale'         => $userInfo->location->name,
-                    'profile_url'     => $userInfo->publicProfileUrl,
-                    'picture_url'     => $userInfo->pictureUrl
+                    'profile_url'    => $userInfo->publicProfileUrl,
+                    'picture_url'    => $userInfo->pictureUrl
                 );
                 
                 //Insert or update user data
@@ -288,7 +288,5 @@ class Dashboard extends CI_Controller
         $this->load->view('login',$data);
     }
 
-
-    
-   
+ 
 }
